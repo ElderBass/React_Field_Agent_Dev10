@@ -12,22 +12,23 @@ const ViewAgents = (props) => {
         <main className="content">
             <div className="agentsBanner">
                 <h2>All Agents</h2>
-                <button onClick={props.handleAddAgent} id="addAgentLink">Add Agent +</button>
+                <button onClick={props.handleAddAgent} id="addAgentBtn">Add Agent +</button>
             </div>
             <div className="agentsDisplay">
-                <div className="agentCard">
-                    <header><h4>Michael Westen</h4></header>
+                {props.agents.map(a => (
+                    <div className="agentCard">
+                    <header><h4>{`${a.firstName} ${a.lastName}`}</h4></header>
                     <main>
                         <img
-                            src="https://mjfredrick.files.wordpress.com/2011/03/burn_notice_s4_004.jpg?w=584"
-                            alt="Michael Westen"
+                            src={a.image ? a.image : "https://static.wikia.nocookie.net/spyversusspy/images/0/02/SpyWhite.jpg/revision/latest?cb=20111220001344"}
+                            alt={`${a.firstName} ${a.lastName}`}
                             className="agentImage"
                         />
                         <div className="spyInfo">
                             <table>
                                 <tr>
                                     <td>DoB:</td>
-                                    <td className="spyData">01/27/1967</td>
+                                    <td className="spyData">{a.dob ? a.dob : "Unknown"}</td>
                                 </tr>
                                 <tr>
                                     <td>Spy Since:</td>
@@ -35,20 +36,21 @@ const ViewAgents = (props) => {
                                 </tr>
                                 <tr>
                                     <td>Height:</td>
-                                    <td className="spyData">70"</td>
+                                    <td className="spyData">{`${a.heightInInches}"`}</td>
                                 </tr>
                             </table>
                         </div>
                     </main>
                     <footer>
-                        <a href="update-agent.html"
-                        ><i className="fas fa-pencil-alt icon"></i
-                        ></a>
-                        <a href="delete-agent.html"
-                        ><i className="fas fa-trash-alt icon"></i
-                        ></a>
+                        <button className="iconBtn" onClick={props.handleEditAgent}
+                        ><i className="fas fa-pencil-alt fa-2x icon"></i
+                        ></button>
+                        <button className="iconBtn" onClick={props.handleDeleteAgent}
+                        ><i className="fas fa-trash-alt fa-2x icon"></i
+                        ></button>
                     </footer>
                 </div>
+                ))}
             </div>
         </main>
     );

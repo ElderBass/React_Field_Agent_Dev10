@@ -17,14 +17,20 @@ const HomePage = (props) => {
 
     const handleAddAgent = () => {
         setViewAdd(true);
+        setViewEdit(false);
+        setViewDelete(false);
     }
 
     const handleEditAgent = () => {
-
+        setViewAdd(false);
+        setViewEdit(true);
+        setViewDelete(false);
     }
 
     const handleDeleteAgent = () => {
-
+        setViewAdd(false);
+        setViewEdit(false);
+        setViewDelete(true);
     }
 
 
