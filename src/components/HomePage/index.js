@@ -79,28 +79,46 @@ const HomePage = (props) => {
             aliases: [],
             agents: []
         }
-        
-        console.log("updated Agent = ", updatedAgent);
+
         const newAgents = [...agents];
         const updatedAgentIndex = newAgents.findIndex(a => a.agentId === currentAgent.agentId);
 
-        console.log("updated agent index = " + updatedAgentIndex);
         newAgents[updatedAgentIndex] = updatedAgent;
 
-        console.log("new agents = ", newAgents);
-
+        setCurrentAgent({ ...updatedAgent });
         setAgents(newAgents);
-
+        setViewEdit(false);
+        setConfirmationMessage({
+            display: true,
+            agent: currentAgent,
+            action: "updated"
+        })
     }
 
     const handleDeleteAgent = (id) => {
         setViewAdd(false);
         setViewEdit(false);
         setViewDelete(true);
+        
+        for (let i = 0; i < agents.length; i++) {
+            if (agents[i].agentId === id) {
+                setCurrentAgent(agents[i]);
+                break;
+            }
+        }
     }
 
     const handleDeleteConfirmation = (e) => {
         e.preventDefault();
+
+        setAgents(agents.filter(a => a.agentId !== currentAgent.agentId));
+        setViewDelete(false);
+
+        setConfirmationMessage({
+            display: true,
+            agent: currentAgent,
+            action: "deleted"
+        })
     }
 
     const handleCancelForm = () => {
@@ -119,7 +137,7 @@ const HomePage = (props) => {
             {confirmationMessage.display ? <ConfirmationMessage agent={currentAgent} confirm={handleCancelForm} action={confirmationMessage.action} /> : null}
             {viewAdd ? <AddAgent submit={handleAddFormSubmit} agents={agents} cancel={handleCancelForm} /> : null}
             {viewEdit ? <UpdateAgent agent={currentAgent} submit={handleEditFormSubmit} cancel={handleCancelForm} /> : null}
-            {viewDelete ? <DeleteAgent agents={agents} confirm={handleDeleteConfirmation} cancel={handleCancelForm} /> : null}
+            {viewDelete ? <DeleteAgent agent={currentAgent} confirm={handleDeleteConfirmation} cancel={handleCancelForm} /> : null}
             <ViewAgents agents={agents} addAgent={handleAddAgent}
                 editAgent={handleEditAgent}
                 deleteAgent={handleDeleteAgent} />

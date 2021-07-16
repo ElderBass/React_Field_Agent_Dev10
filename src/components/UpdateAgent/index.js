@@ -19,7 +19,7 @@ const UpdateAgent = (props) => {
 
         <div className="formContent">
             <h2>Clean the slate and start fresh.</h2>
-            <form className="form" onSubmit={(e) => props.submit(e)}>
+            <form className="form" onSubmit={props.submit}>
                 <div className="field">
                     <label htmlFor="firstName">First Name:</label>
                     <input
@@ -78,7 +78,7 @@ const UpdateAgent = (props) => {
                     />
                 </div>
                 <div className="submitDiv">
-                    <button className="cancelLink" onClick={props.cancel}>Cancel</button>
+                    <button className="cancelBtn" onClick={props.cancel}>Cancel</button>
                     <button className="submitBtn" type="submit">Save Changes</button>
                 </div>
             </form>
