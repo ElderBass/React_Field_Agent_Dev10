@@ -16,7 +16,7 @@ const ViewAgents = (props) => {
             </div>
             <div className="agentsDisplay">
                 {props.agents.map(a => (
-                    <div className="agentCard">
+                    <div className="agentCard" key={`${a.firstName}-p-${a.lastName}-${a.agentId}`}>
                     <header><h4>{`${a.firstName} ${a.lastName}`}</h4></header>
                     <main>
                         <img
@@ -42,10 +42,10 @@ const ViewAgents = (props) => {
                         </div>
                     </main>
                     <footer>
-                        <button className="iconBtn" onClick={props.editAgent}
+                        <button className="iconBtn" onClick={() => props.editAgent(a.agentId)}
                         ><i className="fas fa-pencil-alt fa-2x icon"></i
                         ></button>
-                        <button className="iconBtn" onClick={props.deleteAgent}
+                        <button className="iconBtn" onClick={() => props.deleteAgent(a.agentId)}
                         ><i className="fas fa-trash-alt fa-2x icon"></i
                         ></button>
                     </footer>

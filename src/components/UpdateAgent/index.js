@@ -1,62 +1,85 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 
 import './style.css'
 
 
 const UpdateAgent = (props) => {
 
+    const [agent, setAgent] = useState({ ...props.agent });
+
+    const onInputChangeHandler = (e) => {
+        e.preventDefault();
+        setAgent({
+            ...agent,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (
 
-        <div class="content formContent">
+        <div className="formContent">
             <h2>Clean the slate and start fresh.</h2>
-            <form class="form">
-                <div class="field">
-                    <label for="firstName">First Name:</label>
+            <form className="form" onSubmit={(e) => props.submit(e)}>
+                <div className="field">
+                    <label htmlFor="firstName">First Name:</label>
                     <input
-                        class="inputField"
+                        className="inputField"
                         id="firstName"
                         name="firstName"
                         type="text"
+                        value={agent.firstName}
+                        onChange={(e) => onInputChangeHandler(e)}
                     />
                 </div>
-                <div class="field">
-                    <label for="middleName">Middle Name:</label>
+                <div className="field">
+                    <label htmlFor="lastName">Last Name:</label>
                     <input
-                        class="inputField"
-                        id="middleName"
-                        name="middleName"
-                        type="text"
-                    />
-                </div>
-                <div class="field">
-                    <label for="lastName">Last Name:</label>
-                    <input
-                        class="inputField"
+                        className="inputField"
                         id="lastName"
                         name="lastName"
                         type="text"
+                        value={agent.lastName}
+                        onChange={(e) => onInputChangeHandler(e)}
                     />
                 </div>
-                <div class="field">
-                    <label for="dob">Date of Birth:</label>
-                    <input class="inputField" id="dob" name="dob" type="date" />
-                </div>
-                <div class="field">
-                    <label for="height">Height (Inches):</label>
+                <div className="field">
+                    <label htmlFor="dob">Date of Birth:</label>
                     <input
-                        class="inputField"
+                        className="inputField"
+                        id="dob"
+                        name="dob"
+                        type="date"
+                        value={agent.dob}
+                        onChange={(e) => onInputChangeHandler(e)}
+                    />
+                </div>
+                <div className="field">
+                    <label htmlFor="height">Height (Inches):</label>
+                    <input
+                        className="inputField"
                         id="height"
                         name="height"
                         type="number"
                         min="48"
                         max="144"
+                        value={agent.heightInInches}
+                        onChange={(e) => onInputChangeHandler(e)}
                     />
                 </div>
-                <div class="submitDiv">
-                    <a class="cancelLink" href="home.html">Cancel</a>
-                    <button class="submitBtn" type="submit">Save Changes</button>
+                <div className="field">
+                    <label htmlFor="image">Image:</label>
+                    <input
+                        className="inputField"
+                        id="image"
+                        name="image"
+                        type="text"
+                        value={agent.image}
+                        onChange={(e) => onInputChangeHandler(e)}
+                    />
+                </div>
+                <div className="submitDiv">
+                    <button className="cancelLink" onClick={props.cancel}>Cancel</button>
+                    <button className="submitBtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>

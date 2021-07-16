@@ -33,7 +33,7 @@ const AddAgent = (props) => {
                 </div>
                 <div className="field">
                     <label htmlFor="dob">Date of Birth:</label>
-                    <input class="inputField" id="dob" name="dob" type="date" />
+                    <input className="inputField" id="dob" name="dob" type="date" />
                 </div>
                 <div className="field">
                     <label htmlFor="height">Height (Inches):</label>
