@@ -1,5 +1,5 @@
 import React from 'react';
-
+import classified from "../../images/classified.png";
 
 import './style.css'
 
@@ -20,7 +20,7 @@ const ViewAgents = (props) => {
                     <header><h4>{`${a.firstName} ${a.lastName}`}</h4></header>
                     <main>
                         <img
-                            src={a.image ? a.image : "https://w7.pngwing.com/pngs/575/573/png-transparent-postage-stamps-classified-information-paper-rubber-stamp-classified-ad-text-logo-business.png"}
+                            src={a.image ? a.image : classified}
                             alt={`${a.firstName} ${a.lastName}`}
                             className="agentImage"
                         />

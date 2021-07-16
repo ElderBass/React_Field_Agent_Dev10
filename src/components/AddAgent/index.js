@@ -46,8 +46,17 @@ const AddAgent = (props) => {
                         max="144"
                     />
                 </div>
+                <div className="field">
+                    <label htmlFor="image">Image (Optional):</label>
+                    <input
+                        className="inputField"
+                        id="image"
+                        name="image"
+                        type="text"
+                        placeholder="Paste image URL from web. For best results use 300 x 500."
+                    />
+                </div>
                 <div className="submitDiv">
-                    {/* Might want to change this <a> to a button that has an onClick handler for toggling back to ViewAgents */}
                     <button className="cancelBtn" onClick={props.cancel}>Cancel</button>
                     <button className="submitBtn" type="submit">Add Agent</button>
                 </div>
