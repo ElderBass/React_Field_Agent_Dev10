@@ -11,6 +11,7 @@ import DeleteAgent from '../DeleteAgent';
 const HomePage = (props) => {
 
     const [agents, setAgents] = useState(AGENTS);
+    const [currentAgent, setCurrentAgent] = useState({});
     const [viewAdd, setViewAdd] = useState(false);
     const [viewEdit, setViewEdit] = useState(false);
     const [viewDelete, setViewDelete] = useState(false);
@@ -21,10 +22,20 @@ const HomePage = (props) => {
         setViewDelete(false);
     }
 
+    const handleAddFormSubmit = (e) => {
+        e.preventDefault();
+
+    }
+
     const handleEditAgent = () => {
         setViewAdd(false);
         setViewEdit(true);
         setViewDelete(false);
+    }
+
+    const handleEditFormSubmit = (e) => {
+        e.preventDefault();
+
     }
 
     const handleDeleteAgent = () => {
@@ -33,15 +44,24 @@ const HomePage = (props) => {
         setViewDelete(true);
     }
 
+    const handleDeleteConfirmation = (e) => {
+        e.preventDefault();
+    }
+
+    const handleCancelForm = () => {
+        setViewAdd(false);
+        setViewEdit(false);
+        setViewDelete(false);
+    }
 
 
 
     return (
 
         <div className="content">
-            {viewAdd ? <AddAgent agents={agents} /> : null}
-            {viewEdit ? <UpdateAgent agents={agents} /> : null}
-            {viewDelete ? <DeleteAgent agents={agents} /> : null}
+            {viewAdd ? <AddAgent submit={handleAddFormSubmit} agents={agents} cancel={handleCancelForm}/> : null}
+            {viewEdit ? <UpdateAgent agents={agents} submit={handleEditFormSubmit} cancel={handleCancelForm}/> : null}
+            {viewDelete ? <DeleteAgent agents={agents} confirm={handleDeleteConfirmation} cancel={handleCancelForm}/> : null}
             <ViewAgents agents={agents} addAgent={handleAddAgent}
                 editAgent={handleEditAgent}
                 deleteAgent={handleDeleteAgent} />

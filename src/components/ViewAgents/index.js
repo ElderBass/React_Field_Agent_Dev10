@@ -12,7 +12,7 @@ const ViewAgents = (props) => {
         <main className="content">
             <div className="agentsBanner">
                 <h2>All Agents</h2>
-                <button onClick={props.handleAddAgent} id="addAgentBtn">Add Agent +</button>
+                <button onClick={props.addAgent} id="addAgentBtn">Add Agent +</button>
             </div>
             <div className="agentsDisplay">
                 {props.agents.map(a => (
@@ -20,7 +20,7 @@ const ViewAgents = (props) => {
                     <header><h4>{`${a.firstName} ${a.lastName}`}</h4></header>
                     <main>
                         <img
-                            src={a.image ? a.image : "https://static.wikia.nocookie.net/spyversusspy/images/0/02/SpyWhite.jpg/revision/latest?cb=20111220001344"}
+                            src={a.image ? a.image : "https://w7.pngwing.com/pngs/575/573/png-transparent-postage-stamps-classified-information-paper-rubber-stamp-classified-ad-text-logo-business.png"}
                             alt={`${a.firstName} ${a.lastName}`}
                             className="agentImage"
                         />
@@ -42,10 +42,10 @@ const ViewAgents = (props) => {
                         </div>
                     </main>
                     <footer>
-                        <button className="iconBtn" onClick={props.handleEditAgent}
+                        <button className="iconBtn" onClick={props.editAgent}
                         ><i className="fas fa-pencil-alt fa-2x icon"></i
                         ></button>
-                        <button className="iconBtn" onClick={props.handleDeleteAgent}
+                        <button className="iconBtn" onClick={props.deleteAgent}
                         ><i className="fas fa-trash-alt fa-2x icon"></i
                         ></button>
                     </footer>

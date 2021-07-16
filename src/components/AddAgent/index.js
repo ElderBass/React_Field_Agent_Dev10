@@ -11,7 +11,7 @@ const AddAgent = (props) => {
 
         <div className="formContent">
             <h2>Add to our ranks of nobodies.</h2>
-            <form className="form">
+            <form className="form" onSubmit={props.submit}>
 
                 <div className="field">
                     <label htmlFor="firstName">First Name:</label>
@@ -19,15 +19,6 @@ const AddAgent = (props) => {
                         className="inputField"
                         id="firstName"
                         name="firstName"
-                        type="text"
-                    />
-                </div>
-                <div className="field">
-                    <label htmlFor="middleName">Middle Name:</label>
-                    <input
-                        className="inputField"
-                        id="middleName"
-                        name="middleName"
                         type="text"
                     />
                 </div>
@@ -57,7 +48,7 @@ const AddAgent = (props) => {
                 </div>
                 <div className="submitDiv">
                     {/* Might want to change this <a> to a button that has an onClick handler for toggling back to ViewAgents */}
-                    <a className="cancelLink" href="home.html">Cancel</a>
+                    <button className="cancelBtn" onClick={props.cancel}>Cancel</button>
                     <button className="submitBtn" type="submit">Add Agent</button>
                 </div>
             </form>
