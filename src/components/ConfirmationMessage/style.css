@@ -22,7 +22,8 @@
       color: rgb(252, 32, 241);
       background-color: #190061;
       font-size: 20px;
-      border: solid 2px black;
+      border: solid 2px #190061;
+      box-shadow: 3px 3px 5px rgb(252, 32, 241);
       border-radius: 4px;
   }
 

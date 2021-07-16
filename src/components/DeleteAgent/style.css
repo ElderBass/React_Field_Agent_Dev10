@@ -56,14 +56,14 @@
 
   }
 
-  .cancelBtn {
+  #cancelBtn {
     color: #240090;
     background-color: black;
     border: none;
     font-size: 20px;
   }
   
-  .cancelBtn:hover {
+  #cancelBtn:hover {
     color: #3500d3;
     cursor: pointer;
   }

@@ -42,7 +42,7 @@ const DeleteAgent = (props) => {
             <section id="confirmDelete">
                 <h2>Delete "{props.agent.firstName} {props.agent.lastName}" from Database?</h2>
                 <div class="submitDiv">
-                    <button className="cancelBtn" onClick={props.cancel}>Cancel</button>
+                    <button id="cancelBtn" onClick={props.cancel}>Cancel</button>
                     <button class="submitBtn" type="button" onClick={props.confirm}>Purge Spy</button>
                 </div>
             </section>

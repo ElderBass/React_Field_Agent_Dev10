@@ -25,6 +25,10 @@ const HomePage = (props) => {
         setViewAdd(true);
         setViewEdit(false);
         setViewDelete(false);
+        setConfirmationMessage({
+            ...confirmationMessage,
+            display: false
+        })
     }
 
     const handleAddFormSubmit = (e) => {
@@ -57,6 +61,10 @@ const HomePage = (props) => {
         setViewAdd(false);
         setViewEdit(true);
         setViewDelete(false);
+        setConfirmationMessage({
+            ...confirmationMessage,
+            display: false
+        })
 
         for (let i = 0; i < agents.length; i++) {
             if (agents[i].agentId === id) {
@@ -99,6 +107,10 @@ const HomePage = (props) => {
         setViewAdd(false);
         setViewEdit(false);
         setViewDelete(true);
+        setConfirmationMessage({
+            ...confirmationMessage,
+            display: false
+        })
         
         for (let i = 0; i < agents.length; i++) {
             if (agents[i].agentId === id) {
