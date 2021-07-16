@@ -27,3 +27,31 @@
 
 ## Tasks
 
+### Creating Folder Structure
+* Create a components folder
+* Inside this folder, add folders/files for all of the 'pages' that I will need for this project
+    * Will also create ones for Header, Footer, and Nav
+    * Each folder will have an appropriate name (e.g. AddAgent), with and index.js file and style.css file
+
+    **Estimated Time:** 20 minutes
+
+### index.css styles
+* There are many styles from my previous assessment that all components shared and applied mainly to the template. I will determine which those are and put them into the index.css style page to ensure consistent styling
+
+    **Estimated Time:** 15 minutes
+
+
+### Flesh out Header, Footer, and Nav
+* Should be fairly simple copy/paste from my previous assessment, though I'll to refactor the HTML into JSX (e.g. changing class to className)
+* Will also copy/paste the styles for these components into their style.css files
+
+    **Estimated Time:** 30 minutes.
+
+### Flesh out Home page
+* For now, until I gain more clarification from instructors, my plan is two have two states within this component, one for featured agents and one for recently added.
+    * Using these arrays I will render the agents dynamically using the .map method
+* Import JSX and styles from previous assessment.
+
+    **Estimated Time:** 45 minutes
+
+### 
