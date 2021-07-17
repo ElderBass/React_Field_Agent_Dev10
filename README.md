@@ -65,12 +65,12 @@ _TODO_ Add time estimates to each of the top-level tasks
 * [x] Support editing Agents
   * [x] Store the "edit agent ID" in a new state variable
   * [x] Retrieve the agent to edit
-  * [ ] Update form state variable(s)
-  * [ ] Add form JSX
-  * [ ] Add onChange event handlers to input elements
-  * [ ] Add onSubmit event handler to form element
-  * [ ] Prevent the form from submitting!
-  * [ ] Create Agent object and update the Agents array (don't modify the original array!)
+  * [x] Update form state variable(s)
+  * [x] Add form JSX
+  * [x] Add onChange event handlers to input elements
+  * [x] Add onSubmit event handler to form element
+  * [x] Prevent the form from submitting!
+  * [x] Create Agent object and update the Agents array (don't modify the original array!)
 
 * [ ] Use the provided test plan to manually test the application
 
