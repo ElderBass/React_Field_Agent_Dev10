@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 import './style.css'
@@ -6,7 +6,7 @@ import './style.css'
 
 const AddAgent = (props) => {
 
-
+    
     return (
 
         <div className="formContent">
@@ -20,6 +20,8 @@ const AddAgent = (props) => {
                         id="firstName"
                         name="firstName"
                         type="text"
+                        value={props.agent.firstName}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
@@ -29,21 +31,32 @@ const AddAgent = (props) => {
                         id="lastName"
                         name="lastName"
                         type="text"
+                        value={props.agent.lastName}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
                     <label htmlFor="dob">Date of Birth:</label>
-                    <input className="inputField" id="dob" name="dob" type="date" />
-                </div>
-                <div className="field">
-                    <label htmlFor="height">Height (Inches):</label>
                     <input
                         className="inputField"
-                        id="height"
-                        name="height"
+                        id="dob"
+                        name="dob"
+                        type="date"
+                        value={props.agent.dob}
+                        onChange={(e) => props.change(e)}
+                    />
+                </div>
+                <div className="field">
+                    <label htmlFor="heightInInches">Height (Inches):</label>
+                    <input
+                        className="inputField"
+                        id="heightInInches"
+                        name="heightInInches"
                         type="number"
                         min="48"
                         max="144"
+                        value={props.agent.heightInInches}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
@@ -54,6 +67,8 @@ const AddAgent = (props) => {
                         name="image"
                         type="text"
                         placeholder="Paste image URL from web. For best results use 300 x 500."
+                        value={props.agent.image}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="submitDiv">

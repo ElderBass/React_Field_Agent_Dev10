@@ -13,22 +13,21 @@ const HomePage = (props) => {
     const [agents, setAgents] = useState(AGENTS);
     const [currentAgent, setCurrentAgent] = useState({});
     const [confirmationMessage, setConfirmationMessage] = useState({
-        display: false,
         agent: {},
         action: ""
     })
-    const [viewAdd, setViewAdd] = useState(false);
-    const [viewEdit, setViewEdit] = useState(false);
-    const [viewDelete, setViewDelete] = useState(false);
+    const [viewState, setViewState] = useState("");
+
+    const onInputChangeHandler = (e) => {
+        e.preventDefault();
+        setCurrentAgent({
+            ...currentAgent,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleAddAgent = () => {
-        setViewAdd(true);
-        setViewEdit(false);
-        setViewDelete(false);
-        setConfirmationMessage({
-            ...confirmationMessage,
-            display: false
-        })
+        setViewState("add");
     }
 
     const handleAddFormSubmit = (e) => {
@@ -42,15 +41,14 @@ const HomePage = (props) => {
             lastName: e.target.lastName.value,
             image: e.target.image.value,
             dob: e.target.dob.value,
-            heightInInches: e.target.height.value,
+            heightInInches: e.target.heightInInches.value,
             aliases: [],
             agents: []
         }
         setCurrentAgent({ ...newAgent });
         setAgents([...agents, newAgent]);
-        setViewAdd(false);
+        setViewState("confirm");
         setConfirmationMessage({
-            display: true,
             agent: currentAgent,
             action: "added"
         })
@@ -58,13 +56,7 @@ const HomePage = (props) => {
     }
 
     const handleEditAgent = (id) => {
-        setViewAdd(false);
-        setViewEdit(true);
-        setViewDelete(false);
-        setConfirmationMessage({
-            ...confirmationMessage,
-            display: false
-        })
+        setViewState("edit");
 
         for (let i = 0; i < agents.length; i++) {
             if (agents[i].agentId === id) {
@@ -95,23 +87,16 @@ const HomePage = (props) => {
 
         setCurrentAgent({ ...updatedAgent });
         setAgents(newAgents);
-        setViewEdit(false);
+        setViewState("confirm");
         setConfirmationMessage({
-            display: true,
             agent: currentAgent,
             action: "updated"
         })
     }
 
     const handleDeleteAgent = (id) => {
-        setViewAdd(false);
-        setViewEdit(false);
-        setViewDelete(true);
-        setConfirmationMessage({
-            ...confirmationMessage,
-            display: false
-        })
-        
+        setViewState("delete")
+
         for (let i = 0; i < agents.length; i++) {
             if (agents[i].agentId === id) {
                 setCurrentAgent(agents[i]);
@@ -124,33 +109,49 @@ const HomePage = (props) => {
         e.preventDefault();
 
         setAgents(agents.filter(a => a.agentId !== currentAgent.agentId));
-        setViewDelete(false);
+        setViewState("confirm");
 
         setConfirmationMessage({
-            display: true,
             agent: currentAgent,
             action: "deleted"
         })
     }
 
     const handleCancelForm = () => {
-        setViewAdd(false);
-        setViewEdit(false);
-        setViewDelete(false);
-        setConfirmationMessage({
-            ...confirmationMessage,
-            display: false
-        })
+        setViewState("");
     }
 
     return (
 
         <div className="content">
-            {confirmationMessage.display ? <ConfirmationMessage agent={currentAgent} confirm={handleCancelForm} action={confirmationMessage.action} /> : null}
-            {viewAdd ? <AddAgent submit={handleAddFormSubmit} agents={agents} cancel={handleCancelForm} /> : null}
-            {viewEdit ? <UpdateAgent agent={currentAgent} submit={handleEditFormSubmit} cancel={handleCancelForm} /> : null}
-            {viewDelete ? <DeleteAgent agent={currentAgent} confirm={handleDeleteConfirmation} cancel={handleCancelForm} /> : null}
-            <ViewAgents agents={agents} addAgent={handleAddAgent}
+            {viewState === "confirm" ? <ConfirmationMessage
+                agent={currentAgent}
+                confirm={handleCancelForm}
+                action={confirmationMessage.action} />
+                : null}
+
+            {viewState === "add" ? <AddAgent
+                agent={currentAgent}
+                submit={handleAddFormSubmit}
+                change={onInputChangeHandler}
+                cancel={handleCancelForm} />
+                : null}
+
+            {viewState === "edit" ? <UpdateAgent
+                agent={currentAgent}
+                change={onInputChangeHandler}
+                submit={handleEditFormSubmit}
+                cancel={handleCancelForm} />
+                : null}
+
+            {viewState === "delete" ? <DeleteAgent
+                agent={currentAgent}
+                confirm={handleDeleteConfirmation}
+                cancel={handleCancelForm} />
+                : null}
+
+            <ViewAgents agents={agents}
+                addAgent={handleAddAgent}
                 editAgent={handleEditAgent}
                 deleteAgent={handleDeleteAgent} />
 

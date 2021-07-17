@@ -5,15 +5,6 @@ import './style.css'
 
 const UpdateAgent = (props) => {
 
-    const [agent, setAgent] = useState({ ...props.agent });
-
-    const onInputChangeHandler = (e) => {
-        e.preventDefault();
-        setAgent({
-            ...agent,
-            [e.target.name]: e.target.value
-        })
-    }
 
     return (
 
@@ -27,8 +18,8 @@ const UpdateAgent = (props) => {
                         id="firstName"
                         name="firstName"
                         type="text"
-                        value={agent.firstName}
-                        onChange={(e) => onInputChangeHandler(e)}
+                        value={props.agent.firstName}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
@@ -38,8 +29,8 @@ const UpdateAgent = (props) => {
                         id="lastName"
                         name="lastName"
                         type="text"
-                        value={agent.lastName}
-                        onChange={(e) => onInputChangeHandler(e)}
+                        value={props.agent.lastName}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
@@ -49,21 +40,21 @@ const UpdateAgent = (props) => {
                         id="dob"
                         name="dob"
                         type="date"
-                        value={agent.dob}
-                        onChange={(e) => onInputChangeHandler(e)}
+                        value={props.agent.dob}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
-                    <label htmlFor="height">Height (Inches):</label>
+                    <label htmlFor="heightInInches">Height (Inches):</label>
                     <input
                         className="inputField"
-                        id="height"
-                        name="height"
+                        id="heightInInches"
+                        name="heightInInches"
                         type="number"
                         min="48"
                         max="144"
-                        value={agent.heightInInches}
-                        onChange={(e) => onInputChangeHandler(e)}
+                        value={props.agent.heightInInches}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="field">
@@ -73,8 +64,8 @@ const UpdateAgent = (props) => {
                         id="image"
                         name="image"
                         type="text"
-                        value={agent.image}
-                        onChange={(e) => onInputChangeHandler(e)}
+                        value={props.agent.image}
+                        onChange={(e) => props.change(e)}
                     />
                 </div>
                 <div className="submitDiv">
