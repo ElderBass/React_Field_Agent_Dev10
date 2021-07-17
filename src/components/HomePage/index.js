@@ -16,7 +16,7 @@ const HomePage = (props) => {
         agent: {},
         action: ""
     })
-    const [viewState, setViewState] = useState("");
+    const [viewState, setViewState] = useState("list");
 
     const onInputChangeHandler = (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ const HomePage = (props) => {
     const handleAddFormSubmit = (e) => {
         e.preventDefault();
 
-        const nextId = agents.length > 0 ? Math.max(...agents.map(m => m.id)) + 1 : 1;
+        const nextId = agents.length > 0 ? Math.max(...agents.map(m => m.agentId)) + 1 : 1;
 
         const newAgent = {
             agentId: nextId,
@@ -75,7 +75,7 @@ const HomePage = (props) => {
             lastName: e.target.lastName.value,
             image: e.target.image.value,
             dob: e.target.dob.value,
-            heightInInches: e.target.height.value,
+            heightInInches: e.target.heightInInches.value,
             aliases: [],
             agents: []
         }
@@ -95,14 +95,15 @@ const HomePage = (props) => {
     }
 
     const handleDeleteAgent = (id) => {
-        setViewState("delete")
 
         for (let i = 0; i < agents.length; i++) {
             if (agents[i].agentId === id) {
                 setCurrentAgent(agents[i]);
+                console.log("current agent inside delete agent if statement = ", currentAgent);
                 break;
             }
         }
+        setViewState("delete");
     }
 
     const handleDeleteConfirmation = (e) => {
@@ -118,7 +119,8 @@ const HomePage = (props) => {
     }
 
     const handleCancelForm = () => {
-        setViewState("");
+        setViewState("list");
+        setCurrentAgent({});
     }
 
     return (
@@ -150,10 +152,11 @@ const HomePage = (props) => {
                 cancel={handleCancelForm} />
                 : null}
 
-            <ViewAgents agents={agents}
+            {viewState === "list" ? <ViewAgents agents={agents}
                 addAgent={handleAddAgent}
                 editAgent={handleEditAgent}
                 deleteAgent={handleDeleteAgent} />
+                : null}
 
         </div>
     );
