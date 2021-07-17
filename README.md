@@ -16,45 +16,45 @@ _TODO_ Add time estimates to each of the top-level tasks
 
 ### Part 1: Project Setup and Agents List (Friday Morning)
 
-* [ ] Create a new React project with CRA (create-react-app)
-  * [ ] Remove the cruft (refer back to the Components and JSX exercise for instructions)
+* [x] Create a new React project with CRA (create-react-app)
+  * [x] Remove the cruft (refer back to the Components and JSX exercise for instructions)
 
-* [ ] Migrate CSS files from last week's assessment
-  * [ ] Copy them into the `public` folder
-  * [ ] Link to them in the `index.html` file
+* [x] Migrate CSS files from last week's assessment
+  * [x] Copy them into the `public` folder
+  * [x] Link to them in the `index.html` file
 
-* [ ] Add in provided `data.js` file for the Field Agents data
+* [x] Add in provided `data.js` file for the Field Agents data
 
-* [ ] Create `FieldAgents` component (stub)
-  * [ ] Update `App` component to render `FieldAgents`
+* [x] Create `FieldAgents` component (stub)
+  * [x] Update `App` component to render `FieldAgents`
 
-* [ ] Update `FieldAgents` to render list of Agents
-  * [ ] Copy over HTML from previous assessment
-  * [ ] Replace static data with dynamic data
-  * [ ] Stub out click event handlers ("Add Agent", "Edit Agent", "Delete Agent") as necessary
+* [x] Update `FieldAgents` to render list of Agents
+  * [x] Copy over HTML from previous assessment
+  * [x] Replace static data with dynamic data
+  * [x] Stub out click event handlers ("Add Agent", "Edit Agent", "Delete Agent") as necessary
 
 **Make sure that my GitHub repo is updated!**
 
 ### Part 2: Add Agent and Delete Agent (Friday Afternoon)
 
-* [ ] Create a form to add an Agent
-  * [ ] Add form JSX
-  * [ ] Decide between using individual state variables for input elements or a single object
-  * [ ] Add onChange event handlers to input elements
-  * [ ] Add onSubmit event handler to form element
-  * [ ] Prevent the form from submitting!
-  * [ ] Create Agent object and update the Agents array (don't modify the original array!)
+* [x] Create a form to add an Agent
+  * [x] Add form JSX
+  * [x] Decide between using individual state variables for input elements or a single object
+  * [x] Add onChange event handlers to input elements
+  * [x] Add onSubmit event handler to form element
+  * [x] Prevent the form from submitting!
+  * [x] Create Agent object and update the Agents array (don't modify the original array!)
 
-* [ ] Support deleting Agents
-  * [ ] Store the "delete agent ID" in a new state variable
-  * [ ] Retrieve the agent to delete
-  * [ ] Update form state variable(s)
-  * [ ] Add delete confirmation JSX
-  * [ ] Add button click handler to perform the delete (don't modify the original array!)
+* [x] Support deleting Agents
+  * [x] Store the "delete agent ID" in a new state variable
+  * [x] Retrieve the agent to delete
+  * [x] Update form state variable(s)
+  * [x] Add delete confirmation JSX
+  * [x] Add button click handler to perform the delete (don't modify the original array!)
 
-* [ ] Conditionally render sections of the component
-  * [ ] Add state variable to track the current view
-  * [ ] Add conditional logic to the JSX to display the appropriate view
+* [x] Conditionally render sections of the component
+  * [x] Add state variable to track the current view
+  * [x] Add conditional logic to the JSX to display the appropriate view
 
 **Make sure that my GitHub repo is updated!**
 
@@ -62,9 +62,9 @@ _TODO_ Add time estimates to each of the top-level tasks
 
 **Make sure that my GitHub repo is updated!**
 
-* [ ] Support editing Agents
-  * [ ] Store the "edit agent ID" in a new state variable
-  * [ ] Retrieve the agent to edit
+* [x] Support editing Agents
+  * [x] Store the "edit agent ID" in a new state variable
+  * [x] Retrieve the agent to edit
   * [ ] Update form state variable(s)
   * [ ] Add form JSX
   * [ ] Add onChange event handlers to input elements
