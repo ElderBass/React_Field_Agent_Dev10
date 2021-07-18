@@ -4,7 +4,7 @@ const data = [
         firstName: "Michael",
         lastName: "Westen",
         image: "https://mjfredrick.files.wordpress.com/2011/03/burn_notice_s4_004.jpg?w=584",
-        dob: "01/27/1967",
+        dob: "1967-01-27",
         heightInInches: 71,
         aliases: [],
         agencies: []
@@ -14,7 +14,7 @@ const data = [
         firstName: "Carmen",
         lastName: "Cortez",
         image: "https://upload.wikimedia.org/wikipedia/en/d/db/Carmen_Cortez_in_Spy_Kids.jpg",
-        dob: "08/27/1988",
+        dob: "1988-08-23",
         heightInInches: 61,
         aliases: [],
         agencies: []
@@ -24,7 +24,7 @@ const data = [
         firstName: "Jack",
         lastName: "Bauer",
         image: "https://www.writeups.org/wp-content/uploads/Jack-Bauer-24-Kiefer-Sutherland.jpg",
-        dob: "02/18/1966",
+        dob: "1966-02-18",
         heightInInches: 69,
         aliases: [],
         agencies: []
@@ -34,7 +34,7 @@ const data = [
         firstName: "Bernard",
         lastName: "Ducat",
         image: "https://preview.redd.it/thb0vhtqfn441.png?width=1151&format=png&auto=webp&s=519590e392948d0c7cff9017b0957ee5bcb7bbb6",
-        dob: "07/29/1960",
+        dob: "1960-07-29",
         heightInInches: 66,
         aliases: [],
         agencies: []
@@ -44,7 +44,7 @@ const data = [
         firstName: "Sigimund",
         lastName: "Djikstra",
         image: "https://game-maps.com/Witcher3/img/npc/DIJKSTRA.jpg",
-        dob: "09/13/1964",
+        dob: "1964-09-13",
         heightInInches: 78,
         aliases: [],
         agencies: []
@@ -64,7 +64,7 @@ const data = [
         firstName: "Cotyar",
         lastName: "Ghazi",
         image: "https://i.pinimg.com/474x/1f/7d/c0/1f7dc0c51a1cfedac3e5551624d93bd7.jpg",
-        dob: "10/20/2310",
+        dob: "1985-08-31",
         heightInInches: 70,
         aliases: [],
         agencies: []
@@ -74,7 +74,7 @@ const data = [
         firstName: "Solid",
         lastName: "Snake",
         image: "https://cdn.vox-cdn.com/thumbor/q9ldkEs7xbEWFgMBondzK3Ntzqs=/85x0:1014x619/920x613/filters:focal(85x0:1014x619):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/29585969/mgsvgz_ss_demo_002.0.jpg",
-        dob: "03/28/1972",
+        dob: "1972-03-28",
         heightInInches: 72,
         aliases: [],
         agencies: []

@@ -40,7 +40,7 @@ const UpdateAgent = (props) => {
                         id="dob"
                         name="dob"
                         type="date"
-                        value={props.agent.dob}
+                        defaultValue={props.agent.dob}
                         onChange={(e) => props.change(e)}
                     />
                 </div>
