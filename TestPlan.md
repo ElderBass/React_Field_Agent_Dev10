@@ -29,7 +29,7 @@
   * [x] Displays a form for the user to edit an agent's information
   * [x] Includes a button to submit the form
   * [x] Includes a link to cancel the edit operation and return to the list of agents
-  * [ ] The form pre-populates with the agent's current information
+  * [x] The form pre-populates with the agent's current information
     * Just having an issue pre-populating with DOB data in the date format. I'll have to look into this more deeply
   * [x] The agent's information can be changed in the form and when the form is submitted, the agent is updated in the list of agents
 * [x] Delete Agent
